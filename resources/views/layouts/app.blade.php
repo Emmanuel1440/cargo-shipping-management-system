@@ -49,6 +49,8 @@
             <a href="{{ route('dashboard') }}" class="block px-4 py-2 rounded-xl bg-indigo-700 font-semibold">📊 Dashboard</a>
             <a href="{{ route('clients.index') }}" class="block px-4 py-2 rounded hover:bg-indigo-600">👥 Clients</a>
             <a href="{{ route('ships.index') }}" class="block px-4 py-2 rounded hover:bg-indigo-600">🛳️ Ships</a>
+            <a href="{{ route('cargos.index') }}" class="block px-4 py-2 rounded hover:bg-indigo-600">📦 Cargos</a>
+            <a href="{{ route('crews.index') }}" class="block px-4 py-2 rounded hover:bg-indigo-600"> 👥Crews</a>
             <a href="{{ route('ports.index') }}" class="block px-4 py-2 rounded hover:bg-indigo-600">⚓ Ports</a>
             <a href="{{ route('shipments.index') }}" class="block px-4 py-2 rounded hover:bg-indigo-600">📦 Shipments</a>
             <a href="{{ route('reports.shipments') }}" class="block px-4 py-2 rounded hover:bg-indigo-600">📈 Reports</a>
