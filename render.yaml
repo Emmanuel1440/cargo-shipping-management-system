@@ -1,14 +1,39 @@
 services:
   - type: web
-    name: laravel-app
-    env: php
-    buildCommand: |
-      composer install --no-dev
-      php artisan key:generate
-      php artisan migrate --force
-    startCommand: php artisan serve --host 0.0.0.0 --port 10000
+    name: cargo-shipping-management-system
+    env: docker
+    plan: free
+    branch: main
+    region: oregon
+    dockerfilePath: Dockerfile
+    buildCommand: "composer install --no-dev --optimize-autoloader"
+    startCommand: "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=80"
     envVars:
       - key: APP_ENV
         value: production
+      - key: APP_DEBUG
+        value: false
       - key: APP_KEY
         generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: cargo-shipping-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: cargo-shipping-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: cargo-shipping-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: cargo-shipping-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: cargo-shipping-db
+          property: password
